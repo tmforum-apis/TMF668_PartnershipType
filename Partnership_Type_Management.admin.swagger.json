@@ -1,0 +1,598 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "title": "Partnership Type Management", 
+        "description": "This is Swagger UI environment generated for the TMF Partnership Type Management specification", 
+        "version": "2.0"
+    }, 
+    "host": "biologeek.orange-labs.fr", 
+    "basePath": "/tmf-api/partnershipTypeManagement/v2/", 
+    "schemes": [
+        "https"
+    ], 
+    "consumes": [
+        "application/json"
+    ], 
+    "produces": [
+        "application/json"
+    ], 
+    "paths": {
+        "/partnershipType": {
+            "get": {
+                "operationId": "listPartnershipType", 
+                "summary": "List or find 'PartnershipType' objects", 
+                "tags": [
+                    "partnershipType"
+                ], 
+                "parameters": [
+                    {
+                        "type": "string", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "fields", 
+                        "description": "Comma separated properties to display in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "string", 
+                        "name": "roleType.name", 
+                        "description": "For filtering on the base of 'name' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "boolean", 
+                        "name": "roleType.requiresBilling", 
+                        "description": "For filtering on the base of 'requiresBilling' field (equality)"
+                    }, 
+                    {
+                        "in": "query", 
+                        "type": "boolean", 
+                        "name": "roleType.requiresSettlement", 
+                        "description": "For filtering on the base of 'requiresSettlement' field (equality)"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/PartnershipType"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "post": {
+                "operationId": "createPartnershipType", 
+                "summary": "Creates a 'PartnershipType'", 
+                "tags": [
+                    "partnershipType"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipType_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnershipType", 
+                        "description": "The Partnership Type to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipType"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/partnershipType/{id}": {
+            "get": {
+                "operationId": "retrievePartnershipType", 
+                "summary": "Retrieves a 'PartnershipType' by Id", 
+                "tags": [
+                    "partnershipType"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership Type"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/PartnershipType"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "patch": {
+                "operationId": "patchPartnershipType", 
+                "summary": "Updates partially a 'PartnershipType' by Id", 
+                "tags": [
+                    "partnershipType"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership Type"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipType_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnershipType", 
+                        "description": "The Partnership Type to be updated"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipType"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "delete": {
+                "operationId": "deletePartnershipType", 
+                "summary": "Deletes a 'PartnershipType' by Id", 
+                "tags": [
+                    "partnershipType"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership Type"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub": {
+            "post": {
+                "operationId": "registerListener", 
+                "summary": "Register a listener", 
+                "description": "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "data", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscriptionInput"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "description": "Data containing the callback endpoint to deliver the information"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Subscribed", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub/{id}": {
+            "delete": {
+                "operationId": "unregisterListener", 
+                "summary": "Unregister a listener", 
+                "description": "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "id", 
+                        "type": "string", 
+                        "required": true, 
+                        "in": "path", 
+                        "description": "The id of the registered listener"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Unsubscribed"
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "PartnershipType": {
+            "type": "object", 
+            "description": "A partnership type contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership type"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "The reference url for this partnership type"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "The identifier of the partnership type"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership type."
+                }, 
+                "roleType": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RoleType"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "PartnershipType_Create": {
+            "type": "object", 
+            "description": "A partnership type contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.\nSkipped properties: id,href", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership type"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership type."
+                }, 
+                "roleType": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RoleType"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "PartnershipType_Update": {
+            "type": "object", 
+            "description": "A partnership type contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.\nSkipped properties: id,href", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership type"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership type."
+                }, 
+                "roleType": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RoleType"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "RoleType": {
+            "type": "object", 
+            "description": "A RoleType represents the type of a PartyRole, defined in the context of a given type of partnership, such as Buyer, Seller.", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text documenting the role type"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The name of the role type."
+                }, 
+                "requiresBilling": {
+                    "type": "boolean", 
+                    "description": "Indicates whether billing operations will be associated to parties playing the role"
+                }, 
+                "requiresSettlement": {
+                    "type": "boolean", 
+                    "description": "Indicates whether settlement operations will be associated to parties playing the role"
+                }, 
+                "agreementSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/AgreementSpecificationRef"
+                    }
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
+                }
+            }
+        }, 
+        "AgreementSpecificationRef": {
+            "type": "object", 
+            "description": "AgreementSpecification reference. An AgreementSpecification represents a template of an agreement that can be used when establishing partnerships.", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "A narrative that explains in detail what the agreement specification is about."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference URL of the agreement specification"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the agreement specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the agreement specification"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "EventSubscription": {
+            "required": [
+                "id", 
+                "callback"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Id of the listener"
+                }, 
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "EventSubscriptionInput": {
+            "required": [
+                "callback"
+            ], 
+            "properties": {
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "Error": {
+            "required": [
+                "code", 
+                "reason"
+            ], 
+            "properties": {
+                "code": {
+                    "type": "integer", 
+                    "description": "Application related code."
+                }, 
+                "reason": {
+                    "type": "integer", 
+                    "description": "Text that explains the reason for error."
+                }, 
+                "message": {
+                    "type": "string", 
+                    "description": "(optional) Text that provide more details and corrective actions related to the error."
+                }, 
+                "status": {
+                    "type": "integer", 
+                    "description": "(optional) http error code extension like 400-2"
+                }, 
+                "referenceError": {
+                    "type": "string", 
+                    "description": "(optional) A URL to online documentation that provides more information about the error."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "(optional) The class type of a REST resource."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "(optional) A link to the schema describing a REST resource."
+                }
+            }
+        }
+    }
+}
