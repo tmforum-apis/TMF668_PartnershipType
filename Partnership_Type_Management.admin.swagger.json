@@ -6,7 +6,7 @@
         "version": "2.0"
     }, 
     "host": "biologeek.orange-labs.fr", 
-    "basePath": "/tmf-api/partnershipTypeManagement/v2/", 
+    "basePath": "/tmf-api/partnershipTypeManagement/v1/", 
     "schemes": [
         "https"
     ], 
@@ -353,6 +353,9 @@
         "PartnershipType": {
             "type": "object", 
             "description": "A partnership type contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "description": {
                     "type": "string", 
@@ -460,6 +463,9 @@
         "RoleType": {
             "type": "object", 
             "description": "A RoleType represents the type of a PartyRole, defined in the context of a given type of partnership, such as Buyer, Seller.", 
+            "required": [
+                "name"
+            ], 
             "properties": {
                 "description": {
                     "type": "string", 
