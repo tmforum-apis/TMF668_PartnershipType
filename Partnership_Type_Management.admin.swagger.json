@@ -6,7 +6,7 @@
         "version": "2.0"
     }, 
     "host": "biologeek.orange-labs.fr", 
-    "basePath": "/tmf-api/partnershipTypeManagement/v1/", 
+    "basePath": "/tmf-api/partnershipTypeManagement/v2/", 
     "schemes": [
         "https"
     ], 
@@ -338,6 +338,9 @@
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
+                    }, 
+                    "204": {
+                        "description": "Deleted"
                     }, 
                     "500": {
                         "description": "Internal Server Error", 
