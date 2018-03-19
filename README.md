@@ -1,4 +1,4 @@
-# TMF668_PertnershipType
+# TMF668_PartnershipType
 TM Forum Open APIs (Apache 2.0) Partnership Type Management API
 
 Standardized mechanisms for creating partnership types. It is one of the APIs involved
