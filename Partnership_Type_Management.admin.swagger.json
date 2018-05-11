@@ -45,30 +45,6 @@
                         "in": "query", 
                         "name": "limit", 
                         "description": "Requested number of resources to be provided in response"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "name", 
-                        "description": "For filtering on the base of 'name' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "string", 
-                        "name": "roleType.name", 
-                        "description": "For filtering on the base of 'name' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "boolean", 
-                        "name": "roleType.requiresBilling", 
-                        "description": "For filtering on the base of 'requiresBilling' field (equality)"
-                    }, 
-                    {
-                        "in": "query", 
-                        "type": "boolean", 
-                        "name": "roleType.requiresSettlement", 
-                        "description": "For filtering on the base of 'requiresSettlement' field (equality)"
                     }
                 ], 
                 "responses": {
