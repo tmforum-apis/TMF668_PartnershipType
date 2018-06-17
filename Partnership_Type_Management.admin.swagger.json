@@ -519,6 +519,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text regarding this partnership type"
@@ -540,18 +552,6 @@
                     "items": {
                         "$ref": "#/definitions/RoleType"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -562,6 +562,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text regarding this partnership type"
@@ -575,18 +587,6 @@
                     "items": {
                         "$ref": "#/definitions/RoleType"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -594,6 +594,18 @@
             "type": "object", 
             "description": "A partnership type contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.\nSkipped properties: id,href", 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text regarding this partnership type"
@@ -607,18 +619,6 @@
                     "items": {
                         "$ref": "#/definitions/RoleType"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -629,6 +629,18 @@
                 "name"
             ], 
             "properties": {
+                "@baseType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the base class type of the extension class of the current object. Useful only when the class type of the current  object is unknown to the implementation."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the link to the schema that defines the structure of the class type of the current object."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Generic attribute containing the name of the resource class type"
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "An explanatory text documenting the role type"
@@ -650,18 +662,6 @@
                     "items": {
                         "$ref": "#/definitions/AgreementSpecificationRef"
                     }
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }, 
-                "@schemaLocation": {
-                    "type": "string", 
-                    "description": "A link to the schema describing a resource (for type extension)."
-                }, 
-                "@baseType": {
-                    "type": "string", 
-                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
@@ -669,6 +669,10 @@
             "type": "object", 
             "description": "AgreementSpecification reference. An AgreementSpecification represents a template of an agreement that can be used when establishing partnerships.", 
             "properties": {
+                "@referredType": {
+                    "type": "string", 
+                    "description": "Generic attribute indicating the name of the class type of the referred resource entity."
+                }, 
                 "description": {
                     "type": "string", 
                     "description": "A narrative that explains in detail what the agreement specification is about."
@@ -684,10 +688,6 @@
                 "name": {
                     "type": "string", 
                     "description": "Name of the agreement specification"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
                 }
             }
         }, 
