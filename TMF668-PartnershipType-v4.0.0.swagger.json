@@ -1,0 +1,2715 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "title": "Partnership Management", 
+        "description": "This is Swagger UI environment generated for the TMF Partnership Management specification", 
+        "version": "4.0"
+    }, 
+    "host": "serverRoot", 
+    "basePath": "/tmf-api/partnershipManagement/v4/", 
+    "schemes": [
+        "https"
+    ], 
+    "consumes": [
+        "application/json;charset=utf-8"
+    ], 
+    "produces": [
+        "application/json;charset=utf-8"
+    ], 
+    "tags": [
+        {
+            "name": "partnershipSpecification"
+        }, 
+        {
+            "name": "partnership"
+        }, 
+        {
+            "name": "notification listeners (client side)"
+        }, 
+        {
+            "name": "events subscription"
+        }
+    ], 
+    "paths": {
+        "/partnershipSpecification": {
+            "get": {
+                "operationId": "listPartnershipSpecification", 
+                "summary": "List or find PartnershipSpecification objects", 
+                "description": "This operation list or find PartnershipSpecification entities", 
+                "tags": [
+                    "partnershipSpecification"
+                ], 
+                "parameters": [
+                    {
+                        "type": "string", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "fields", 
+                        "description": "Comma-separated properties to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Success", 
+                        "headers": {
+                            "X-Total-Count": {
+                                "type": "integer", 
+                                "description": "Total number of items matching criteria"
+                            }, 
+                            "X-Result-Count": {
+                                "type": "integer", 
+                                "description": "Actual number of items returned in the response body"
+                            }
+                        }, 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/PartnershipSpecification"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "post": {
+                "operationId": "createPartnershipSpecification", 
+                "summary": "Creates a PartnershipSpecification", 
+                "description": "This operation creates a PartnershipSpecification entity.", 
+                "tags": [
+                    "partnershipSpecification"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecification_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnershipSpecification", 
+                        "description": "The PartnershipSpecification to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecification"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/partnershipSpecification/{id}": {
+            "get": {
+                "operationId": "retrievePartnershipSpecification", 
+                "summary": "Retrieves a PartnershipSpecification by ID", 
+                "description": "This operation retrieves a PartnershipSpecification entity. Attribute selection is enabled for all first level attributes.", 
+                "tags": [
+                    "partnershipSpecification"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the PartnershipSpecification"
+                    }, 
+                    {
+                        "required": false, 
+                        "type": "string", 
+                        "name": "fields", 
+                        "in": "query", 
+                        "description": "Comma-separated properties to provide in response"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Success", 
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecification"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "patch": {
+                "operationId": "patchPartnershipSpecification", 
+                "summary": "Updates partially a PartnershipSpecification", 
+                "description": "This operation updates partially a PartnershipSpecification entity.", 
+                "tags": [
+                    "partnershipSpecification"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the PartnershipSpecification"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecification_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnershipSpecification", 
+                        "description": "The PartnershipSpecification to be updated"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecification"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "delete": {
+                "operationId": "deletePartnershipSpecification", 
+                "summary": "Deletes a PartnershipSpecification", 
+                "description": "This operation deletes a PartnershipSpecification entity.", 
+                "tags": [
+                    "partnershipSpecification"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the PartnershipSpecification"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/partnership": {
+            "get": {
+                "operationId": "listPartnership", 
+                "summary": "List or find Partnership objects", 
+                "description": "This operation list or find Partnership entities", 
+                "tags": [
+                    "partnership"
+                ], 
+                "parameters": [
+                    {
+                        "type": "string", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "fields", 
+                        "description": "Comma-separated properties to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Success", 
+                        "headers": {
+                            "X-Total-Count": {
+                                "type": "integer", 
+                                "description": "Total number of items matching criteria"
+                            }, 
+                            "X-Result-Count": {
+                                "type": "integer", 
+                                "description": "Actual number of items returned in the response body"
+                            }
+                        }, 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Partnership"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "post": {
+                "operationId": "createPartnership", 
+                "summary": "Creates a Partnership", 
+                "description": "This operation creates a Partnership entity.", 
+                "tags": [
+                    "partnership"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Partnership_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnership", 
+                        "description": "The Partnership to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Created", 
+                        "schema": {
+                            "$ref": "#/definitions/Partnership"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/partnership/{id}": {
+            "get": {
+                "operationId": "retrievePartnership", 
+                "summary": "Retrieves a Partnership by ID", 
+                "description": "This operation retrieves a Partnership entity. Attribute selection is enabled for all first level attributes.", 
+                "tags": [
+                    "partnership"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership"
+                    }, 
+                    {
+                        "required": false, 
+                        "type": "string", 
+                        "name": "fields", 
+                        "in": "query", 
+                        "description": "Comma-separated properties to provide in response"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Success", 
+                        "schema": {
+                            "$ref": "#/definitions/Partnership"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "patch": {
+                "operationId": "patchPartnership", 
+                "summary": "Updates partially a Partnership", 
+                "description": "This operation updates partially a Partnership entity.", 
+                "tags": [
+                    "partnership"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Partnership_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "partnership", 
+                        "description": "The Partnership to be updated"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/Partnership"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "delete": {
+                "operationId": "deletePartnership", 
+                "summary": "Deletes a Partnership", 
+                "description": "This operation deletes a Partnership entity.", 
+                "tags": [
+                    "partnership"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Partnership"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub": {
+            "post": {
+                "operationId": "registerListener", 
+                "summary": "Register a listener", 
+                "description": "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "data", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscriptionInput"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "description": "Data containing the callback endpoint to deliver the information"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Subscribed", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub/{id}": {
+            "delete": {
+                "operationId": "unregisterListener", 
+                "summary": "Unregister a listener", 
+                "description": "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "id", 
+                        "type": "string", 
+                        "required": true, 
+                        "in": "path", 
+                        "description": "The id of the registered listener"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "405": {
+                        "description": "Method not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipCreateEvent": {
+            "post": {
+                "operationId": "listenToPartnershipCreateEvent", 
+                "summary": "Client listener for entity PartnershipCreateEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipCreateEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipCreateEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipChangeEvent": {
+            "post": {
+                "operationId": "listenToPartnershipChangeEvent", 
+                "summary": "Client listener for entity PartnershipChangeEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipChangeEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipChangeEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipDeleteEvent": {
+            "post": {
+                "operationId": "listenToPartnershipDeleteEvent", 
+                "summary": "Client listener for entity PartnershipDeleteEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipDeleteEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipDeleteEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipSpecificationCreateEvent": {
+            "post": {
+                "operationId": "listenToPartnershipSpecificationCreateEvent", 
+                "summary": "Client listener for entity PartnershipSpecificationCreateEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipSpecificationCreateEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecificationCreateEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipSpecificationChangeEvent": {
+            "post": {
+                "operationId": "listenToPartnershipSpecificationChangeEvent", 
+                "summary": "Client listener for entity PartnershipSpecificationChangeEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipSpecificationChangeEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecificationChangeEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/listener/partnershipSpecificationDeleteEvent": {
+            "post": {
+                "operationId": "listenToPartnershipSpecificationDeleteEvent", 
+                "summary": "Client listener for entity PartnershipSpecificationDeleteEvent", 
+                "description": "Example of a client listener for receiving the notification PartnershipSpecificationDeleteEvent", 
+                "tags": [
+                    "notification listeners (client side)"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/PartnershipSpecificationDeleteEvent"
+                        }, 
+                        "description": "The event data", 
+                        "required": true, 
+                        "name": "data", 
+                        "in": "body"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Notified", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "AccountRef": {
+            "type": "object", 
+            "description": "Account reference. A account may be a party account or a financial account.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the account"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the account"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "Detailed description of the account"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the account"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "AgreementRef": {
+            "type": "object", 
+            "description": "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of a related entity."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the related entity."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the agreement"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "AgreementSpecificationRef": {
+            "type": "object", 
+            "description": "AgreementSpecification reference. An AgreementSpecification represents a template of an agreement that can be used when establishing partnerships.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of a related entity."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the related entity."
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "A narrative that explains in detail what the agreement specification is about."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the agreement specification"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "Any": {}, 
+        "Characteristic": {
+            "type": "object", 
+            "description": "Describes a given characteristic of an object or entity through a name/value pair.", 
+            "required": [
+                "name", 
+                "value"
+            ], 
+            "properties": {
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the characteristic"
+                }, 
+                "valueType": {
+                    "type": "string", 
+                    "description": "Data type of the value of the characteristic"
+                }, 
+                "value": {
+                    "$ref": "#/definitions/Any", 
+                    "description": "The value of the characteristic"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "ContactMedium": {
+            "type": "object", 
+            "description": "Indicates the contact medium that could be used to contact the party.", 
+            "properties": {
+                "mediumType": {
+                    "type": "string", 
+                    "description": "Type of the contact medium, such as: email address, telephone number, postal address"
+                }, 
+                "preferred": {
+                    "type": "boolean", 
+                    "description": "If true, indicates that is the preferred contact medium"
+                }, 
+                "characteristic": {
+                    "$ref": "#/definitions/MediumCharacteristic", 
+                    "description": "Any additional characteristic(s) of this contact medium"
+                }, 
+                "validFor": {
+                    "$ref": "#/definitions/TimePeriod", 
+                    "description": "The time period that the contact medium is valid for"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "CreditProfile": {
+            "type": "object", 
+            "description": "Credit profile for the party (containing credit scoring, ...). By default only the current credit profile  is retrieved. It can be used as a list to give the party credit profiles history, the first one in the list will be the current one.", 
+            "properties": {
+                "creditProfileDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date the profile was established"
+                }, 
+                "creditRiskRating": {
+                    "type": "integer", 
+                    "description": "This is an integer whose value is used to rate the risk"
+                }, 
+                "creditScore": {
+                    "type": "integer", 
+                    "description": "A measure of a person or organizations creditworthiness calculated on the basis of a combination of factors such as their income and credit history"
+                }, 
+                "validFor": {
+                    "$ref": "#/definitions/TimePeriod", 
+                    "description": "The period for which the profile is valid"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "EntityRef": {
+            "type": "object", 
+            "description": "Entity reference schema to be use for all entityRef class.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of a related entity."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the related entity."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the related entity."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "MediumCharacteristic": {
+            "type": "object", 
+            "description": "Describes the contact medium characteristics that could be used to contact a party (an individual or an organization)", 
+            "properties": {
+                "city": {
+                    "type": "string", 
+                    "description": "The city"
+                }, 
+                "contactType": {
+                    "type": "string", 
+                    "description": "The type of contact, for example: phone number such as mobile, fixed home, fixed office. postal address such as shipping instalation\u2026"
+                }, 
+                "country": {
+                    "type": "string", 
+                    "description": "The country"
+                }, 
+                "emailAddress": {
+                    "type": "string", 
+                    "description": "Full email address in standard format"
+                }, 
+                "faxNumber": {
+                    "type": "string", 
+                    "description": "The fax number of the contact"
+                }, 
+                "phoneNumber": {
+                    "type": "string", 
+                    "description": "The primary phone number of the contact"
+                }, 
+                "postCode": {
+                    "type": "string", 
+                    "description": "Postcode"
+                }, 
+                "socialNetworkId": {
+                    "type": "string", 
+                    "description": "Identifier as a member of a social network"
+                }, 
+                "stateOrProvince": {
+                    "type": "string", 
+                    "description": "State or province"
+                }, 
+                "street1": {
+                    "type": "string", 
+                    "description": "Describes the street"
+                }, 
+                "street2": {
+                    "type": "string", 
+                    "description": "Complementary street description"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "Partner": {
+            "type": "object", 
+            "description": "A party playing a given role in the partnership", 
+            "required": [
+                "engagedParty", 
+                "name"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier for Partners"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Url used to reference the partner."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "A word, term, or phrase by which the Partner is known and distinguished from other Partners."
+                }, 
+                "status": {
+                    "type": "string", 
+                    "description": "Used to track the lifecycle status of the partner."
+                }, 
+                "statusReason": {
+                    "type": "string", 
+                    "description": "A string providing an explanation on the value of the status lifecycle. For instance if the status is Rejected, statusReason will provide the reason for rejection."
+                }, 
+                "account": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/AccountRef"
+                    }
+                }, 
+                "agreement": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/AgreementRef"
+                    }
+                }, 
+                "characteristic": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Characteristic"
+                    }, 
+                    "description": "Describes the characteristic of a partner."
+                }, 
+                "contactMedium": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/ContactMedium"
+                    }
+                }, 
+                "creditProfile": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/CreditProfile"
+                    }
+                }, 
+                "engagedParty": {
+                    "$ref": "#/definitions/RelatedParty", 
+                    "description": "The reference to the party engaged in this partnership."
+                }, 
+                "paymentMethod": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/PaymentMethodRef"
+                    }
+                }, 
+                "relatedParty": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedParty"
+                    }
+                }, 
+                "validFor": {
+                    "$ref": "#/definitions/TimePeriod", 
+                    "description": "The time period that the Partner is valid for."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "Partnership": {
+            "type": "object", 
+            "description": "A partnership represents a formalized collaboration between various parties, each party playing a role in the partnership. The parties playing a role in the partnership represented by the Partner entity. The structure of a partnership is specified by a PartnershipSpecification which contain all the information for the setup of the partnership, including the list of identified roles and the agreement that should apply.", 
+            "required": [
+                "name", 
+                "specification"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "The identifier of the partnership"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "The reference url for this partnership"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership."
+                }, 
+                "partner": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Partner"
+                    }, 
+                    "description": "The list of partners of the partnership, where a partner represents a party playing a given role. Hence a partner structure includes primarily a reference to the engaged party and a role name matching necessarily the name of one of the role specifications defined in the specification of the partnership."
+                }, 
+                "specification": {
+                    "$ref": "#/definitions/PartnershipSpecificationRef", 
+                    "description": "The specification of this partnership."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "Partnership_Create": {
+            "type": "object", 
+            "description": "A partnership represents a formalized collaboration between various parties, each party playing a role in the partnership. The parties playing a role in the partnership represented by the Partner entity. The structure of a partnership is specified by a PartnershipSpecification which contain all the information for the setup of the partnership, including the list of identified roles and the agreement that should apply.\nSkipped properties: id,href", 
+            "required": [
+                "name", 
+                "specification"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership."
+                }, 
+                "partner": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Partner"
+                    }, 
+                    "description": "The list of partners of the partnership, where a partner represents a party playing a given role. Hence a partner structure includes primarily a reference to the engaged party and a role name matching necessarily the name of one of the role specifications defined in the specification of the partnership."
+                }, 
+                "specification": {
+                    "$ref": "#/definitions/PartnershipSpecificationRef", 
+                    "description": "The specification of this partnership."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "Partnership_Update": {
+            "type": "object", 
+            "description": "A partnership represents a formalized collaboration between various parties, each party playing a role in the partnership. The parties playing a role in the partnership represented by the Partner entity. The structure of a partnership is specified by a PartnershipSpecification which contain all the information for the setup of the partnership, including the list of identified roles and the agreement that should apply.\nSkipped properties: id,href", 
+            "required": [
+                "name", 
+                "specification"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership."
+                }, 
+                "partner": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Partner"
+                    }, 
+                    "description": "The list of partners of the partnership, where a partner represents a party playing a given role. Hence a partner structure includes primarily a reference to the engaged party and a role name matching necessarily the name of one of the role specifications defined in the specification of the partnership."
+                }, 
+                "specification": {
+                    "$ref": "#/definitions/PartnershipSpecificationRef", 
+                    "description": "The specification of this partnership."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "PartnershipRoleSpecification": {
+            "type": "object", 
+            "description": "A PartnershipRoleSpecification represents a specification of a role defined in the context of a given type of partnership (PartnershipSpecification), such as Buyer, Seller.", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text documenting the role specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The name of the role specification. This name uniquely identifies the role specification within the partnership"
+                }, 
+                "requiresBilling": {
+                    "type": "boolean", 
+                    "description": "Indicates whether billing operations will be associated to parties playing the role"
+                }, 
+                "requiresSettlement": {
+                    "type": "boolean", 
+                    "description": "Indicates whether settlement operations will be associated to parties playing the role"
+                }, 
+                "agreementSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/AgreementSpecificationRef"
+                    }
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "PartnershipSpecification": {
+            "type": "object", 
+            "description": "A partnership specification contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "The identifier of the partnership specification"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "The reference url for this partnership specification"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership specification."
+                }, 
+                "roleSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/PartnershipRoleSpecification"
+                    }, 
+                    "description": "The list of roles specifications a engaged party will be able to play for this kind of partnership"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "PartnershipSpecification_Create": {
+            "type": "object", 
+            "description": "A partnership specification contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.\nSkipped properties: id,href", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership specification."
+                }, 
+                "roleSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/PartnershipRoleSpecification"
+                    }, 
+                    "description": "The list of roles specifications a engaged party will be able to play for this kind of partnership"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "PartnershipSpecification_Update": {
+            "type": "object", 
+            "description": "A partnership specification contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.\nSkipped properties: id,href", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text regarding this partnership specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "An identifying name for the partnership specification."
+                }, 
+                "roleSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/PartnershipRoleSpecification"
+                    }, 
+                    "description": "The list of roles specifications a engaged party will be able to play for this kind of partnership"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "PartnershipSpecificationRef": {
+            "type": "object", 
+            "description": "PartnershipSpecification reference. A partnership specification contains all the information for the setup of a partnership of a given kind. This includes the list of identified role types for the partnership with the corresponding agreement specifications.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the partnership specification"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference url for the partnership specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the partnership specification"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "PaymentMethodRef": {
+            "type": "object", 
+            "description": "PaymentMethod reference. A payment method defines a specific mean of payment (e.g direct debit).", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the payment mean"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the payment mean"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the payment mean"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }, 
+            "required": [
+                "id"
+            ]
+        }, 
+        "RelatedParty": {
+            "type": "object", 
+            "description": "Related Entity reference. A related party defines party or party role linked to a specific entity.", 
+            "required": [
+                "@referredType", 
+                "id"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of a related entity."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the related entity."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the related entity."
+                }, 
+                "role": {
+                    "type": "string", 
+                    "description": "Role played by the related party"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "RoleSpecification": {
+            "type": "object", 
+            "description": "A RoleSpecification represents a specification of a role.", 
+            "required": [
+                "name"
+            ], 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory text documenting the role specification"
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The name of the role specification. This name uniquely identifies the role specification"
+                }, 
+                "agreementSpecification": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/AgreementSpecificationRef"
+                    }
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name"
+                }
+            }
+        }, 
+        "TimePeriod": {
+            "type": "object", 
+            "description": "A period of time, either as a deadline (endDateTime only) a startDateTime only, or both", 
+            "properties": {
+                "endDateTime": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "End of the time period, using IETC-RFC-3339 format"
+                }, 
+                "startDateTime": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end"
+                }
+            }
+        }, 
+        "EventSubscription": {
+            "required": [
+                "id", 
+                "callback"
+            ], 
+            "type": "object", 
+            "description": "Sets the communication endpoint address the service instance must use to deliver notification information", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Id of the listener"
+                }, 
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "EventSubscriptionInput": {
+            "required": [
+                "callback"
+            ], 
+            "type": "object", 
+            "description": "Sets the communication endpoint address the service instance must use to deliver notification information", 
+            "properties": {
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "PartnershipCreateEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipCreateEventPayload"
+                }
+            }
+        }, 
+        "PartnershipCreateEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnership": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/Partnership"
+                }
+            }
+        }, 
+        "PartnershipChangeEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipChangeEventPayload"
+                }
+            }
+        }, 
+        "PartnershipChangeEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnership": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/Partnership"
+                }
+            }
+        }, 
+        "PartnershipDeleteEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipDeleteEventPayload"
+                }
+            }
+        }, 
+        "PartnershipDeleteEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnership": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/Partnership"
+                }
+            }
+        }, 
+        "PartnershipSpecificationCreateEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipSpecificationCreateEventPayload"
+                }
+            }
+        }, 
+        "PartnershipSpecificationCreateEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnershipSpecification": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/PartnershipSpecification"
+                }
+            }
+        }, 
+        "PartnershipSpecificationChangeEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipSpecificationChangeEventPayload"
+                }
+            }
+        }, 
+        "PartnershipSpecificationChangeEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnershipSpecification": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/PartnershipSpecification"
+                }
+            }
+        }, 
+        "PartnershipSpecificationDeleteEvent": {
+            "type": "object", 
+            "description": "The notification data structure", 
+            "properties": {
+                "eventId": {
+                    "type": "string", 
+                    "description": "The identifier of the notification."
+                }, 
+                "eventTime": {
+                    "type": "string", 
+                    "description": "Time of the event occurrence.", 
+                    "format": "date-time"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "An explanatory of the event."
+                }, 
+                "timeOcurred": {
+                    "type": "string", 
+                    "description": "The time the event occured.", 
+                    "format": "date-time"
+                }, 
+                "title": {
+                    "type": "string", 
+                    "description": "The title of the event."
+                }, 
+                "eventType": {
+                    "type": "string", 
+                    "description": "The type of the notification."
+                }, 
+                "domain": {
+                    "type": "string", 
+                    "description": "The domain of the event."
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "A priority."
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the resource involved in the event"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the resource involved in the event"
+                }, 
+                "correlationId": {
+                    "type": "string", 
+                    "description": "The correlation id for this event."
+                }, 
+                "event": {
+                    "description": "The event payload linked to the involved resource object", 
+                    "$ref": "#/definitions/PartnershipSpecificationDeleteEventPayload"
+                }
+            }
+        }, 
+        "PartnershipSpecificationDeleteEventPayload": {
+            "type": "object", 
+            "description": "The event data structure", 
+            "properties": {
+                "partnershipSpecification": {
+                    "description": "The involved resource data for the event", 
+                    "$ref": "#/definitions/PartnershipSpecification"
+                }
+            }
+        }, 
+        "Error": {
+            "required": [
+                "code", 
+                "reason"
+            ], 
+            "type": "object", 
+            "description": "Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)", 
+            "properties": {
+                "code": {
+                    "type": "string", 
+                    "description": "Application relevant detail, defined in the API or a common list."
+                }, 
+                "reason": {
+                    "type": "string", 
+                    "description": "Explanation of the reason for the error which can be shown to a client user."
+                }, 
+                "message": {
+                    "type": "string", 
+                    "description": "More details and corrective actions related to the error which can be shown to a client user."
+                }, 
+                "status": {
+                    "type": "string", 
+                    "description": "HTTP Error code extension"
+                }, 
+                "referenceError": {
+                    "type": "string", 
+                    "description": "URI of documentation describing the error.", 
+                    "format": "uri"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the super-class."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships", 
+                    "format": "uri"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "When sub-classing, this defines the sub-class entity name."
+                }
+            }
+        }
+    }
+}
